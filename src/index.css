@@ -1,13 +1,59 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+*{
+  font-family: 'Roboto',sans-serif;
+}
+body{
+  background-color: #333;
+}
+.posts{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content: center;
+  align-items: center;
+  
+}
+.posts .post{
+  width: 20%;
+  border:1px solid #fff;
+  margin:10px;
+  min-height: 350px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.post h3{
+  color: #eee;
+  padding:20px;
+  text-align: center;  
+}
+.posts .post p{
+  padding:20px;
+  color:#eee;
+}
+.buttons{
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding:40px 0px;
+}
+.buttons button{
+  outline:0;
+  border:0;
+  background-color:#5555;
+  font-weight: normal;
+  font-size:19px;
+  color:#eee;
+  padding:5px 10px;
+  cursor: pointer;
+}
+.buttons button:hover{
+  background-color:#fff;
+  color:#000;
+}
+.buttons button:not(:last-child){
+  margin-right:10px;
+}
+.buttons button.active{
+  background-color:#fff;
+  color:#000;
 }
