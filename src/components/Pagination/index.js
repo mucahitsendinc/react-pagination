@@ -32,10 +32,31 @@ export default function Pagination({setter,data,pagelimit,slice,render}) {
       }
     }
   }
-  const post={id:1,title:'asd',body:'asdsgf'}
+
   return (
-    {
-      render
-    }
+    <div className="buttons">
+      {data!=[]  ? 
+      data.slice(0,data.length/pagelimit).map((item,index) => {
+        if(index == 0){
+          return (
+            <React.Fragment key={index}>
+              <button  onClick={() => changePage('back')}> {'<'} </button>
+              <button className={active==index ? 'active' : ''}  onClick={() => setPage([index*pagelimit,pagelimit])}>{index+1}</button>
+            </React.Fragment>
+          )
+        }else if(index==data.length/pagelimit-1){ 
+          return (
+            <React.Fragment key={index}>
+              <button className={active==index ? 'active' : ''} onClick={() => setPage([data.length-pagelimit,data.length],index)}>{index+1}</button>
+              <button onClick={() => changePage('next')}>{'>'}</button>
+            </React.Fragment>
+          )
+        }
+        return (
+          <button key={index} className={active==index ? 'active' : ''} onClick={() => setPage([index*pagelimit,(index+1)*pagelimit],index)}>{index+1}</button>
+        )
+      })
+      : <></>}
+    </div>
   )
 }
